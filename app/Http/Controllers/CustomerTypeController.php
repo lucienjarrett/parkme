@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Session; 
+use App\CustomerType; 
 
 class CustomerTypeController extends Controller
 {
@@ -16,6 +18,9 @@ class CustomerTypeController extends Controller
     public function index()
     {
         //
+        $types = CustomerType::all(); 
+
+        return view('customertypes/index')->withTypes($types); 
     }
 
     /**

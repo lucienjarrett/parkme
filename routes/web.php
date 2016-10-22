@@ -19,6 +19,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/contact', ['uses' =>'PagesController@create', 'as'=> 'contact']);
 Route::post('/contact', ['uses'=>'PagesController@store', 'as'=>'contact.store']); 
 
+Route::resource('/customertype','CustomerTypeController');
+
 Route::get('/about', ['uses' =>'PagesController@about', 'as'=> 'pages.about']);
 
 
