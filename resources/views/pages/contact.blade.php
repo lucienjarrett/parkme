@@ -13,14 +13,20 @@
             @endforeach
         </ul>
 
+        @if(Session::has('message'))
+            <div class="alert alert-info">
+                {{ Session::get('message') }}
+            </div>
+        @endif
+
         {!! Form::open(array('route'=>'contact.store', 'class'=>'form')) !!}
         
         <div class="form-group">
-            {{ Form::label('name', 'Name' )}}
-                    {{ Form::input('name', 'Name', null,['class'=>'form-control'])}}
+            {{ Form::label( 'Your Name' )}}
+            {{ Form::input('name', 'name', null,['class'=>'form-control'])}}
         </div>
         <div class="form-group">              
-            {{ Form::label('email', 'Email' )}}
+            {{ Form::label( 'Your Email' )}}
             {{ Form::input('email', 'email', null,['class'=>'form-control'])}}
         </div>
         <div class="form-group">

@@ -28,5 +28,8 @@ class ContactFormRequest extends FormRequest
             'email' => 'required|email', 
             'message' => 'required|max:255'
         ];
+
+
+    
     }
 }

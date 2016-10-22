@@ -11,10 +11,7 @@ class PagesController extends Controller
 {
     //
     
-    // public function contact(){
-        
-    //     return view('pages/contact');
-    // }
+ 
 
     public function about(){
 
@@ -22,11 +19,13 @@ class PagesController extends Controller
     }
 
 
+
     public function create(){
      return view('pages.contact'); 
     }
 
     public function store(ContactFormRequest $request){
+
 
         return \Redirect::route('contact')
         ->with('message', 'Thanks for contacting us!!'); 
