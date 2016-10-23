@@ -11,5 +11,9 @@
     {{ Form::submit('Save Changes', ['class'=>'btn btn-primary']) }}
     {!! Form::close() !!}
 </div>
+
+<div class="row">
+    
+</div>
   
 @endsection

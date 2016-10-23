@@ -5,116 +5,125 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Session; 
+use Session;
 use App\CustomerType;
-use View; 
+use View;
+use Carbon\Carbon;
 
 class CustomerTypeController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         //
-        $types = CustomerType::all(); 
-
-        return view('customertypes/index')->withTypes($types); 
+        $types = CustomerType::all();
+        
+        return view('customertypes/index')->withTypes($types);
     }
-
-
+    
+    
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
-        return view ('customertypes/create'); 
+        return view ('customertypes/create');
     }
-
+    
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'name'=>'required|max:150'
-        ]); 
-
-        $customertype = new CustomerType; 
-
-        $customertype->name = $request->name; 
-
         
-        $customertype->save(); 
-
+        $this->validate($request, [
+        'name'=>'required|max:150'
+        ]);
+        
+        $customertype = new CustomerType;
+        
+        $customertype->name = $request->name;
+        
+        
+        $customertype->save();
+        
         Session::flash('message', 'Successfully created '.$request->name);
-        return redirect()->route('customertype.index'); 
+        return redirect()->route('customertype.index');
     }
-
+    
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
         //
-
+        
     }
-
+    
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
-            
-            
-            
-            $type = CustomerType::find($id); 
-            
-            return view('customertypes/edit')->with('type',$type); 
-
-            //return View::make('customertypes/edit')->with('type', $type); 
-
-      }
-
+        
+        
+        
+        $type = CustomerType::find($id);
+        
+        return view('customertypes/edit')->with('type',$type);
+        
+        //return View::make('customertypes/edit')->with('type', $type);
+        
+    }
+    
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
+        
+        $this->validate($request, [
+        'name'=>'required|max:150',
+        ]);
+        
         $type = CustomerType::find($id);
-
+        
         $type->name = $request->input('name');
-
-        $type->save(); 
-        return redirect()->route('customertype.index');   
+        
+        $type->save();
+        Session::flash('message', 'Successfully updated to '.$request->input('name'));
+        return redirect()->route('customertype.index');
     }
-
+    
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
-        //
+        $type = CustomerType::find($id);
+        
+        $type->delete();
     }
 }

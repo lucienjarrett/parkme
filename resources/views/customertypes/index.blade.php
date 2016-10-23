@@ -21,7 +21,9 @@
             <th> {{ $type->id }}</th>
             <td> {{ $type->name }}</td>
              <td> {{ $type->updated_at->toDateString() }}</td>
-            <td><a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-default btn-sm">Edit</a> </td>
+            <td><a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-default btn-sm">Edit</a> 
+            
+            </td>
         </tr>
         @endforeach
     </tbody>
