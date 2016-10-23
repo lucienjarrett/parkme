@@ -23,6 +23,7 @@ class CustomerTypeController extends Controller
         return view('customertypes/index')->withTypes($types); 
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
