@@ -31,7 +31,7 @@ class CustomerTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view ('customertypes/create'); 
     }
 
     /**
@@ -42,7 +42,19 @@ class CustomerTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'name'=>'required|max:150'
+        ]); 
+
+        $customertype = new CustomerType; 
+
+        $customertype->name = $request->name; 
+
+        $customertype->save(); 
+
+
+        return redirect()->route('customertype.index'); 
     }
 
     /**
@@ -54,6 +66,7 @@ class CustomerTypeController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
