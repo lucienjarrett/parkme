@@ -21,8 +21,12 @@
             <th> {{ $type->id }}</th>
             <td> {{ $type->name }}</td>
              <td> {{ $type->updated_at->toDateString() }}</td>
-            <td><a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-default btn-sm">Edit</a> 
-            
+            <td> 
+             {!! Form::open(['route'=>['customertype.destroy', $type->id], 'method'=>'DELETE', 'class' => 'pull-right']) !!}
+             {{ Form::submit('Del', ['class'=>'btn btn-warning btn-sm']) }}
+            {!! Form::close() !!}
+
+            <a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-default btn-sm">Edit</a>
             </td>
         </tr>
         @endforeach

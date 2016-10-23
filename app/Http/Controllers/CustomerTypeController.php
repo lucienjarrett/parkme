@@ -9,6 +9,7 @@ use Session;
 use App\CustomerType;
 use View;
 use Carbon\Carbon;
+use Redirect; 
 
 class CustomerTypeController extends Controller
 {
@@ -57,7 +58,7 @@ class CustomerTypeController extends Controller
         $customertype->save();
         
         Session::flash('message', 'Successfully created '.$request->name);
-        return redirect()->route('customertype.index');
+        return Redirect::route('customertype.index');
     }
     
     /**
@@ -111,7 +112,7 @@ class CustomerTypeController extends Controller
         
         $type->save();
         Session::flash('message', 'Successfully updated to '.$request->input('name'));
-        return redirect()->route('customertype.index');
+        return Redirect::route('customertype.index');
     }
     
     /**
@@ -123,7 +124,10 @@ class CustomerTypeController extends Controller
     public function destroy($id)
     {
         $type = CustomerType::find($id);
-        
+
         $type->delete();
+         // redirect
+        Session::flash('message', 'Successfully deleted the nerd!');
+         return Redirect::route('customertype.index');
     }
 }
