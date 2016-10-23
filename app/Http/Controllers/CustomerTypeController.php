@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Session; 
-use App\CustomerType; 
+use App\CustomerType;
+use View; 
 
 class CustomerTypeController extends Controller
 {
@@ -51,9 +52,10 @@ class CustomerTypeController extends Controller
 
         $customertype->name = $request->name; 
 
+        
         $customertype->save(); 
 
-
+        Session::flash('message', 'Successfully created '.$request->name);
         return redirect()->route('customertype.index'); 
     }
 
@@ -77,8 +79,16 @@ class CustomerTypeController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+            
+            
+            
+            $type = CustomerType::find($id); 
+            
+            return view('customertypes/edit')->with('type',$type); 
+
+            //return View::make('customertypes/edit')->with('type', $type); 
+
+      }
 
     /**
      * Update the specified resource in storage.
@@ -89,7 +99,12 @@ class CustomerTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $type = CustomerType::find($id);
+
+        $type->name = $request->input('name');
+
+        $type->save(); 
+        return redirect()->route('customertype.index');   
     }
 
     /**
