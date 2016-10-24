@@ -1,8 +1,6 @@
 
-
-{{-- <div id="wrap">
-  <div id="main" class="container clear-top">
-  
-  </div>
-</div>
-<footer class="footer"></footer> --}}
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+</footer>

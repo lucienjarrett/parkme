@@ -69,7 +69,8 @@ class CustomerTypeController extends Controller
     */
     public function show($id)
     {
-        //
+        $type = CustomerType::find($id);
+        return view('customertypes/show')->with('type', $type);  
         
     }
     
@@ -80,10 +81,7 @@ class CustomerTypeController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function edit($id)
-    {
-        
-        
-        
+    {    
         $type = CustomerType::find($id);
         
         return view('customertypes/edit')->with('type',$type);

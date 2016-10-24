@@ -7,8 +7,7 @@
 
 
     <h1>Add Company</h1>
-
-        
+        <hr>    
         <!-- if there are creation errors, they will show here -->
         {{ Html::ul($errors->all()) }}
 
@@ -18,7 +17,6 @@
                 {{ Session::get('message') }}
             </div>
         @endif
-
 
 
         {!! Form::open(['route'=>['company.store'], 'method'=>'POST']) !!}

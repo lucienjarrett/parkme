@@ -20,10 +20,24 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                       <li><a href="#">Products</a></li>
+                      <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{route('company.index')}}">Company Setup</a></li>
+                                    <li><a href="{{route('customertype.index') }}">Customer Type</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                                </li>
+                       
                         <li><a href="{{ route('pages.about')}}">About</a></li>
                         <li><a href="{{ route('contact')}}">Contact</a></li>
-                    </ul>
+                               
+                            </ul>
+                        </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

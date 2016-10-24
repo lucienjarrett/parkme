@@ -8,6 +8,7 @@
     {{ Form::input('name', 'name', null, ['class'=>'form-control']) }}
 </div>
     {{ Form::submit('Save Changes', ['class'=>'btn btn-primary']) }}
+    <a href="{{ route('customertype.index') }}" class="btn btn-info"> Back to List </a>
     {!! Form::close() !!}
 </div>
 

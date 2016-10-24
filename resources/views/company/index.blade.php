@@ -10,7 +10,7 @@
             </div>
         @endif
     <div class="col-md-8 col-md-offset-2">
-    <a href="{{ route('company.create') }}" class="btn btn-primary pull-right">Add New</a>
+    <a href="{{ route('company.create') }}" class="btn btn-success pull-right">Add New</a>
     <table class="table">
     <thead>
         <th>#</th>
@@ -29,10 +29,10 @@
     <td>{{ $company->address }}</td>
     <td>{{ ($company->active)=="1" ? "Yes" : "No" }}</td>
     <td>{{ $company->created_at }}</td>
-    <td><a href="{{ route('company.show', $company->id) }}" class="btn btn-primary btn-sm" >Show </a>
-    <a href="{{ route('company.edit', $company->id) }}" class="btn btn-success btn-sm">Edit</a>
-     {!! Form::open(['route' => ['company.destroy', $company->id], 'method' => 'delete']) !!}
-     <input class="btn btn-default btn-sm" type="submit" value="Del" />
+    <td><a href="{{ route('company.show', $company->id) }}" class="btn btn-info btn-sm" >Show </a>
+    <a href="{{ route('company.edit', $company->id) }}" class="btn btn-primary btn-sm">Edit</a>
+     {!! Form::open(['route' => ['company.destroy', $company->id], 'method' => 'delete','style'=>'display:inline']) !!}
+     <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
     {!! Form::close() !!}</td>
     </tr>
       

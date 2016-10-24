@@ -20,7 +20,7 @@
         {{ Form::checkbox('active', 1, null, ['class' => 'field']) }}
     </div>
 
-        {{ Form::submit('Save changes', ['class'=>'btn btn-primary pull-right']) }}
+        {{ Form::submit('Save changes', ['class'=>'btn btn-success pull-right']) }}
        
 {{ Html::linkRoute('company.index', 'Back Company List',null , ['class'=>'btn btn-primary pull-left']) }}
     {!!Form::close() !!}

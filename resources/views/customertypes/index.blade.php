@@ -22,11 +22,13 @@
             <td> {{ $type->name }}</td>
              <td> {{ $type->updated_at->toDateString() }}</td>
             <td> 
-             {!! Form::open(['route'=>['customertype.destroy', $type->id], 'method'=>'DELETE', 'class' => 'pull-right']) !!}
-             {{ Form::submit('Del', ['class'=>'btn btn-warning btn-sm']) }}
+            <a href="{{ route('customertype.show', $type->id) }}" class="btn btn-info btn-sm">Show</a>
+            <a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-primary btn-sm">Edit</a>
+
+             {!! Form::open(['route'=>['customertype.destroy', $type->id], 'method'=>'DELETE','style'=>'display:inline']) !!}
+             {{ Form::submit('Delete', ['class'=>'btn btn-danger btn-sm']) }}
             {!! Form::close() !!}
 
-            <a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-default btn-sm">Edit</a>
             </td>
         </tr>
         @endforeach
@@ -40,8 +42,11 @@
         {{ Form::label('Customer Type Name: ') }} 
         {{ Form::input('name', 'name', null, ['class'=>'form-control', 'placeholder'=>'Customer type name here...']) }}
     </div>
-    {{ Form::submit('Add New', ['class'=>'btn btn-primary']) }} {!! Form::close() !!}
+    {{ Form::submit('Add New', ['class'=>'btn btn-success pull-right', 'style'=>'display:inline']) }} 
+    {!! Form::close() !!}
 </div>
+
+
 
 
 @endsection()
