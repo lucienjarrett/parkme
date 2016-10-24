@@ -5,13 +5,14 @@
 <h1>All Companies</h1>
 <hr>
     <div class="col-md-8 col-md-offset-2">
-    
+    <a href="{{ route('company.create') }}" class="btn btn-primary pull-right">Add New</a>
     <table class="table">
     <thead>
         <th>#</th>
         <th>Company Name</th>
         <th>Address</th>
         <th>Active</th>
+        <th>Date Added</th>
         <th>Action</th>
     </thead>
     <tbody>
@@ -21,8 +22,9 @@
     <th>{{ $company->id }}</th>
     <td>{{ $company->name }}</td>
     <td>{{ $company->address }}</td>
-    <td>{{ $company->active }}</td>
-    <td></td>
+    <td>{{ ($company->active)=="1" ? "Yes" : "No" }}</td>
+    <td>{{ $company->created_at }}</td>
+    <td><a href="{{ route('company.show', $company->id) }}" class="btn btn-primary btn-sm" >Show </a></td>
     </tr>
       
     @endforeach

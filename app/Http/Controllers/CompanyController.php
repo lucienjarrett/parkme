@@ -75,7 +75,8 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = Company::find($id);
+        return view('company.show')->with('company',$company);  
     }
 
     /**

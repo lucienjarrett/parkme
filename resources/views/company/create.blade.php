@@ -8,12 +8,9 @@
 
     <h1>Add Company</h1>
 
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-               
-            @endforeach
-        </ul>
+        
+        <!-- if there are creation errors, they will show here -->
+        {{ Html::ul($errors->all()) }}
 
         {{-- {{ Html::ul($errors) }} --}}
 
@@ -22,6 +19,7 @@
                 {{ Session::get('message') }}
             </div>
         @endif
+
 
 
         {!! Form::open(['route'=>['company.store'], 'method'=>'POST']) !!}
@@ -42,7 +40,7 @@
     </div>
 
         {{ Form::submit('Add New', ['class'=>'btn btn-primary pull-right']) }}
-        
+        {{ Form::reset('Reset', ['class'=>'btn btn-default pull-left']) }}
         {!! Form::close() !!}
     </div>
 
