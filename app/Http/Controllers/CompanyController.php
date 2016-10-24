@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Session; 
+use Redirect; 
+use App\Company;
+use Carbon\Carbon; 
+use View;  
 
 class CompanyController extends Controller
 {
@@ -15,7 +20,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+       $companies = Company::paginate(5); 
+       return view('company.index')->withCompanies($companies); 
     }
 
     /**
@@ -25,7 +31,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('company.create'); 
     }
 
     /**
@@ -36,7 +42,29 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'name'=>'required', 
+            'address' => 'required'
+            
+        ]); 
+
+       // var_dump((int)$request->active); 
+
+        $company = new Company; 
+
+        $company->name = $request->name; 
+        $company->address = $request->address; 
+        $company->active = (int)$request->active; 
+
+
+
+        $company->save(); 
+
+        Session::flash("message", "Su"); 
+        
+        return Redirect::route('company.index'); 
+        
     }
 
     /**
