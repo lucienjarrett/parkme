@@ -12,10 +12,9 @@
    <b>Updated At: </b>{{ $company->updated_at}}
     </div>
 
-<div class="row">
-<div class="col-md-8">
+
     {{ Html::linkRoute('company.index', 'View All Companies',null , ['class'=>'btn btn-primary btn-block'])}}
-    </div>
+
     </div>
 
     </div>

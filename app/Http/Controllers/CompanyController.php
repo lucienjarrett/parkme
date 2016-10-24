@@ -61,7 +61,7 @@ class CompanyController extends Controller
 
         $company->save(); 
 
-        Session::flash("message", "Su"); 
+        Session::flash("message", "Company successfully created..."); 
         
         return Redirect::route('company.index'); 
         
@@ -87,7 +87,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::find($id); 
+        return view('company.edit')->with('company', $company); 
     }
 
     /**
