@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\ContactFormRequest; 
 use Mail; 
+use Redirect; 
 
 class PagesController extends Controller
 {
@@ -29,7 +30,7 @@ class PagesController extends Controller
 
     public function store(ContactFormRequest $request){
 
-         Mail::send('emails.contact',
+        Mail::send('emails.contact',
         array(
             'name' => $request->get('name'),
             'email' => $request->get('email'),
@@ -41,7 +42,7 @@ class PagesController extends Controller
     });
 
 
-        return \Redirect::route('contact')
+        return Redirect::route('contact')
         ->with('message', 'Thanks for contacting us!!'); 
 
     }

@@ -10,6 +10,7 @@ use Redirect;
 use App\Company;
 use Carbon\Carbon; 
 use View;  
+use App\Http\Requests\CompanyFormRequest; 
 
 class CompanyController extends Controller
 {
@@ -40,16 +41,8 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyFormRequest $request)
     {
-
-        $this->validate($request, [
-            'name'=>'required', 
-            'address' => 'required'
-            
-        ]); 
-
-       // var_dump((int)$request->active); 
 
         $company = new Company; 
 
@@ -98,9 +91,18 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyFormRequest $request, $id)
     {
-        //
+        $company = Company::find($id);
+
+        $company->name = $request->input('name');
+        $company->address = $request->input('address'); 
+        $company->active = (int)$request->input('active');
+
+        $company->save(); 
+
+        Session::flash('message', $request->input('name') . ' was updated..' ); 
+        return Redirect::route('company.index');  
     }
 
     /**
@@ -111,6 +113,12 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+
+        $company = Company::find($id);
+        $company->delete(); 
+
+        return Redirect::route('company.index'); 
+
     }
 }

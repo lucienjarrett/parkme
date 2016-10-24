@@ -2,15 +2,8 @@
 @section('title', '| Edit Company' )
 @section('content')
     <div class="col-md-8">
-    {{Html::ul($errors->all())}}
-    @if(Session::has('message'))
-            <div class="alert alert-info">
-                {{ Session::get('message') }}
-            </div>
-        @endif
-
-
-
+    {{ Html::ul($errors->all()) }}
+    
     {!!Form::model($company, ['route'=>['company.update', $company->id], 'method'=>'PUT']) !!}
      <div class="form-group">
         {{ Form::label('name', 'Company Name:') }}
@@ -27,9 +20,9 @@
         {{ Form::checkbox('active', 1, null, ['class' => 'field']) }}
     </div>
 
-        {{ Form::submit('Add New', ['class'=>'btn btn-primary pull-right']) }}
-        {{ Form::reset('Reset', ['class'=>'btn btn-default pull-left']) }}
-
+        {{ Form::submit('Save changes', ['class'=>'btn btn-primary pull-right']) }}
+       
+{{ Html::linkRoute('company.index', 'Back Company List',null , ['class'=>'btn btn-primary pull-left']) }}
     {!!Form::close() !!}
     </div>
 @endsection

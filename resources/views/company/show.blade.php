@@ -13,8 +13,9 @@
     </div>
 
 
-    {{ Html::linkRoute('company.index', 'View All Companies',null , ['class'=>'btn btn-primary btn-block'])}}
-
+    <a href="{{ route('company.edit', $company->id) }}" class="btn btn-default" >Edit Company</a>
+    {{ Html::linkRoute('company.index', 'View All Companies',null , ['class'=>'btn btn-primary'])}}
+    
     </div>
 
     </div>

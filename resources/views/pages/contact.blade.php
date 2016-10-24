@@ -33,7 +33,7 @@
             {{ Form::textarea('message', null, ['class'=>'form-control'])}}    
         </div>      
         <div class="form-group">
-            {{ Form::submit('Contact Us! ', ['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Contact Us! ', ['class'=>'btn btn-primary pull-right']) }}
         </div>        
             {!! Form::close() !!}
             
