@@ -12,8 +12,7 @@
         <!-- if there are creation errors, they will show here -->
         {{ Html::ul($errors->all()) }}
 
-        {{-- {{ Html::ul($errors) }} --}}
-
+    
         @if(Session::has('message'))
             <div class="alert alert-info">
                 {{ Session::get('message') }}

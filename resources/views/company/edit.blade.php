@@ -11,7 +11,7 @@
 
 
 
-    {!!Form::model() !!}
+    {!!Form::model($company, ['route'=>['company.update', $company->id], 'method'=>'PUT']) !!}
      <div class="form-group">
         {{ Form::label('name', 'Company Name:') }}
         {{ Form::input('name','name', null, ['class'=> 'form-control'] ) }}

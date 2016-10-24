@@ -24,7 +24,8 @@
     <td>{{ $company->address }}</td>
     <td>{{ ($company->active)=="1" ? "Yes" : "No" }}</td>
     <td>{{ $company->created_at }}</td>
-    <td><a href="{{ route('company.show', $company->id) }}" class="btn btn-primary btn-sm" >Show </a></td>
+    <td><a href="{{ route('company.show', $company->id) }}" class="btn btn-primary btn-sm" >Show </a>
+    <a href="{{ route('company.edit', $company->id) }}" class="btn btn-primary btn-sm">Edit</a></td>
     </tr>
       
     @endforeach
