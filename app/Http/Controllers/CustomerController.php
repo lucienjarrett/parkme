@@ -11,6 +11,7 @@ use Redirect;
 use App\Company; 
 use App\CustomerType; 
 use DB; 
+use App\Http\Requests\CustomerFormRequest; 
 
 
 class CustomerController extends Controller
@@ -34,13 +35,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //$company = Company::lists('name', 'id'); 
         $customertype = DB::table('customer_types')->pluck('name', 'id'); 
-
         $company = DB::table('companies')->pluck('name', 'id');
 
-
-   
         return view('customer.create')->with('company', $company)->with('customertype', $customertype); 
     }
 
@@ -50,9 +47,21 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerFormRequest $request)
     {
-        //
+        $customer = new Customer; 
+
+        $customer->name = $request->name;
+        $customer->customer_type_id = $request->customer_type_id; 
+        $customer->company_id = $request->company_id; 
+        $customer->plate = $request->plate; 
+
+        $customer->save(); 
+        
+        Session::flash('message', 'Customer added...'); 
+        return Redirect::route('customer.index'); 
+
+
     }
 
     /**
@@ -84,7 +93,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CustomerFormRequest $request, $id)
     {
         //
     }

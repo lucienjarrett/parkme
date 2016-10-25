@@ -2,6 +2,11 @@
 @section('content')
     <div class="col-md-8"> 
     
+{{ Html::ul( $errors->all() )}}
+@if (Session::has('message'))
+<div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
     {!!Form::open(['route'=>['customer.store'], 'method'=>'POST'])!!}
 
     <div class="form-group">
