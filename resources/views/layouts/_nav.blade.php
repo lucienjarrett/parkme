@@ -25,7 +25,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{route('company.index')}}">Company Setup</a></li>
                                     <li><a href="{{route('customertype.index') }}">Customer Type</a></li>
-                                    <li><a href="#">Something else here</a></li>
+                                    <li><a href="{{route('customer.index')}}">Customers</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Separated link</a></li>
                                     <li role="separator" class="divider"></li>

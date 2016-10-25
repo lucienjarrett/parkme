@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->string('name', 150); 
             $table->string('address');
-            $table->boolean('active')->default(1); 
+            $table->boolean('active')->default(1);         
             $table->timestamps();
         });
     }

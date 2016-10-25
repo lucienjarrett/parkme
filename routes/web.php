@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('company', 'CompanyController'); 
 Route::get('/contact', ['uses' =>'PagesController@create', 'as'=> 'contact']);
 Route::post('/contact', ['uses'=>'PagesController@store', 'as'=>'contact.store']); 
-
+Route::resource('customer', 'CustomerController'); 
 Route::resource('customertype','CustomerTypeController');
 
 

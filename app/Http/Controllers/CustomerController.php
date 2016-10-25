@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Customer; 
+use Session; 
+use Redirect; 
+use App\Company; 
+use App\CustomerType; 
+use DB; 
+
 
 class CustomerController extends Controller
 {
@@ -16,6 +23,8 @@ class CustomerController extends Controller
     public function index()
     {
         //
+        $customers = Customer::all(); 
+        return view('customer.index')->with('customers', $customers); 
     }
 
     /**
@@ -25,7 +34,14 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        //$company = Company::lists('name', 'id'); 
+        $customertype = DB::table('customer_types')->pluck('name', 'id'); 
+
+        $company = DB::table('companies')->pluck('name', 'id');
+
+
+   
+        return view('customer.create')->with('company', $company)->with('customertype', $customertype); 
     }
 
     /**
