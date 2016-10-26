@@ -25,7 +25,7 @@ class CustomerFormRequest extends FormRequest
     {
         return [
             'name'=> 'required',
-            'plate'=>'required|max:10', 
+            'plate'=>'required|unique:customers,plate|max:10', 
             'company_id' => 'required', 
             'customer_type_id'=> 'required'
         ];

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="col-md-8"> 
-    
-{{ Html::ul( $errors->all() )}}
+    <h1>Add Customer</h1>
+    {{ Html::ul( $errors->all() )}}
 @if (Session::has('message'))
 <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
@@ -25,9 +25,10 @@
         {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
         {{ Form::select('customer_type_id', $customertype, 'Select Customer Type', ['class'=>'form-control', 'id'=>'customer_type_yd']) }}
     </div>
-    {{ Form::submit('Save', ['class'=>'btn btn-success']) }}
-
+    {{ Form::reset('Reset', ['class'=>'btn btn-default']) }}
+    {{ Form::submit('Save', ['class'=>'btn btn-success pull-right']) }}
+    
     {!!Form::close() !!}
     
     </div>
-@endsection
+@endsection 

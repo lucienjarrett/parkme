@@ -24,7 +24,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $customers = Customer::all(); 
+        $customers = Customer::paginate(5); 
         return view('customer.index')->with('customers', $customers); 
     }
 
@@ -72,7 +72,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Customer::find($id);
+        var_dump($customer); 
+        return view('customer.show')->with('customer', $customer); 
     }
 
     /**
