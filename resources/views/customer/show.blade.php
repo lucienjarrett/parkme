@@ -15,7 +15,7 @@
     </div>
 
     {{Html::linkRoute('customer.index','Back to Customers',null, ['class'=>'btn btn-info'] )}}
-    {{Html::linkRoute('customer.edit','Edit Customer',$customer->id, ['class'=>'btn btn-primary'] )}}
+    {{Html::linkRoute('customer.edit','Edit Customer',$customer->id, ['class'=>'btn btn-primary pull-right'] )}}
 
     </div>
 @endsection
