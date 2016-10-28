@@ -7,7 +7,7 @@
 <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-    {!!Form::model($customer, ['route'=>['customer.update', $customer->id], 'method'=>'POST'])!!}
+    {!!Form::model($customer, ['route'=>['customer.update', $customer->id], 'method'=>'PUT'])!!}
 
     <div class="form-group">
         {{ Form::label('name', 'Customer Name: ') }}

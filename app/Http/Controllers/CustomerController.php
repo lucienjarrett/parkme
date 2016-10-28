@@ -103,7 +103,7 @@ class CustomerController extends Controller
     */
     public function update(CustomerFormRequest $request, $id)
     {
-        //
+        return "Test"; 
     }
     
     /**
