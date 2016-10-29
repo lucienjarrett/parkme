@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         {{ Form::label('company_id', 'Select Company') }}
-        {{ Form::select('company_id', $company, 'Select Company', ['class'=>'form-control', 'placeholder'=>'Select company']) }}
+        {{ Form::select('company_id', $company, null, ['class'=>'form-control', 'placeholder'=>'Select company']) }}
     </div>
     <div class="form-group">
         {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
