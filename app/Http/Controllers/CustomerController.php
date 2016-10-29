@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\CustomerFormRequest; 
 use App\Http\Requests;
 use App\Customer;
 use Session;
@@ -11,7 +12,7 @@ use Redirect;
 use App\Company;
 use App\CustomerType;
 use DB;
-use App\Http\Requests\CustomerFormRequest;
+//use App\Http\Requests\CustomerFormRequest;
 
 
 class CustomerController extends Controller
@@ -49,8 +50,11 @@ class CustomerController extends Controller
     */
     public function store(CustomerFormRequest $request)
     {
+
         $customer = new Customer;
         
+       
+
         $customer->name = $request->name;
         $customer->customer_type_id = $request->customer_type_id;
         $customer->company_id = $request->company_id;
@@ -103,7 +107,19 @@ class CustomerController extends Controller
     */
     public function update(CustomerFormRequest $request, $id)
     {
-        return "Test"; 
+        $customer = Customer::find($id);
+
+        $customer->name = $request->input('name'); 
+        $customer->customer_type_id = $request->input('customer_type_id'); 
+        $customer->company_id = $request->input('company_id'); 
+        //$customer->is_active = $request->input();  
+        $customer->plate = $request->input('plate'); 
+
+
+        $customer->save(); 
+        Session::flash('message', 'Successfully updated...'); 
+        
+        return Redirect::route('customer.index'); 
     }
     
     /**

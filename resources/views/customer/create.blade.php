@@ -19,11 +19,11 @@
     </div>
     <div class="form-group">
         {{ Form::label('company_id', 'Select Company') }}
-        {{ Form::select('company_id', $company, 'Select Company', ['class'=>'form-control']) }}
+        {{ Form::select('company_id', $company, 'Select Company', ['class'=>'form-control', 'placeholder'=>'Select company']) }}
     </div>
     <div class="form-group">
         {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
-        {{ Form::select('customer_type_id', $customertype, 'Select Customer Type', ['class'=>'form-control', 'id'=>'customer_type_yd']) }}
+        {{ Form::select('customer_type_id', $customertype, 'Select Customer Type', ['class'=>'form-control', 'id'=>'customer_type_id', 'placeholder'=>'Select customer type']) }}
     </div>
     {{ Form::reset('Reset', ['class'=>'btn btn-default']) }}
     {{ Form::submit('Save', ['class'=>'btn btn-success pull-right']) }}

@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Route; 
 class CustomerFormRequest extends FormRequest
 {
     /**
@@ -23,11 +23,16 @@ class CustomerFormRequest extends FormRequest
      */
     public function rules()
     {
+       $id = Route::input('customer'); 
+       
+
         return [
-            'name'=> 'required',
-            'plate'=>'required|unique:customers,plate|max:10', 
+          
+            'name' => 'required',
+            'plate' =>'required|max:10|unique:customers,plate, '.$id, 
             'company_id' => 'required', 
             'customer_type_id'=> 'required'
+       
         ];
     }
 }
