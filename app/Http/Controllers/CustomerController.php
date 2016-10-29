@@ -130,6 +130,11 @@ class CustomerController extends Controller
     */
     public function destroy($id)
     {
-        //
+      $customer = Customer::find($id);
+    
+      $customer->delete(); 
+      Session::flash('message', 'Customer deleted..');
+      return Redirect::route('customer.index');  
+
     }
 }
