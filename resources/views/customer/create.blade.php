@@ -11,20 +11,26 @@
 
     <div class="form-group">
         {{ Form::label('name', 'Customer Name: ') }}
-        {{ Form::input('name', 'name', null, ['class'=>'form-control']) }}
+        {{ Form::input('name', 'name', null, ['class'=>'form-control', 'placeholder'=>'Customer name here']) }}
     </div>
     <div class="form-group">
         {{ Form::label('plate', 'Licence Plate') }}
-        {{ Form::input('plate', 'plate', null, ['class'=>'form-control']) }}
+        {{ Form::input('plate', 'plate', null, ['class'=>'form-control', 'placeholder'=>'Customer licence plate']) }}
+    </div>
+     <div class="form-group">
+        {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
+        {{ Form::select('customer_type_id', $customertype, 'Select Customer Type', ['class'=>'form-control', 'id'=>'customer_type_id', 'placeholder'=>'Select customer type']) }}
     </div>
     <div class="form-group">
         {{ Form::label('company_id', 'Select Company') }}
         {{ Form::select('company_id', $company, null, ['class'=>'form-control', 'placeholder'=>'Select company']) }}
     </div>
-    <div class="form-group">
-        {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
-        {{ Form::select('customer_type_id', $customertype, 'Select Customer Type', ['class'=>'form-control', 'id'=>'customer_type_id', 'placeholder'=>'Select customer type']) }}
+   
+<div class="form-group">
+        {{ Form::label('active', 'Is Active:') }}  
+        {{ Form::checkbox('active', 1, null, ['class' => 'checkbox']) }}
     </div>
+
     {{ Form::reset('Reset', ['class'=>'btn btn-default']) }}
     {{ Form::submit('Save', ['class'=>'btn btn-success pull-right']) }}
     

@@ -11,21 +11,30 @@
 
     <div class="form-group">
         {{ Form::label('name', 'Customer Name: ') }}
-        {{ Form::input('name', 'name', null, ['class'=>'form-control']) }}
+        {{ Form::input('name', 'name', null, ['class'=>'form-control', 'placeholder']) }}
     </div>
     <div class="form-group">
         {{ Form::label('plate', 'Licence Plate') }}
         {{ Form::input('plate', 'plate', null, ['class'=>'form-control']) }}
     </div>
+
+      <div class="form-group">
+        {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
+        {{ Form::select('customer_type_id', $customertype, $customer->customer_type_id, ['class'=>'form-control', 'id'=>'customer_type_yd']) }}
+    </div>
+
     <div class="form-group">
         {{ Form::label('company_id', 'Select Company') }}
         {{ Form::select('company_id', $company, $customer->company_id, ['class'=>'form-control']) }}
     </div>
     
+  
+
     <div class="form-group">
-        {{ Form::label('customer_type_id', 'Select Customer Type: ') }}
-        {{ Form::select('customer_type_id', $customertype, $customer->customer_type_id, ['class'=>'form-control', 'id'=>'customer_type_yd']) }}
+        {{ Form::label('active', 'Is Active:') }}  
+        {{ Form::checkbox('active', 1, $customer->active, ['class' => 'checkbox']) }}
     </div>
+
     {{ Html::linkRoute('customer.index', 'back', null, ['class'=>'btn btn-default']) }}
     {{ Form::submit('Save', ['class'=>'btn btn-success pull-right']) }}
     

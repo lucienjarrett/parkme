@@ -31,7 +31,8 @@ class CustomerFormRequest extends FormRequest
             'name' => 'required',
             'plate' =>'required|max:10|unique:customers,plate, '.$id, 
             'company_id' => 'required', 
-            'customer_type_id'=> 'required'
+            'customer_type_id'=> 'required',
+            'active'=> 'required'
        
         ];
     }

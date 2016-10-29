@@ -23,17 +23,17 @@
 
     <div class="form-group">
         {{ Form::label('name', 'Company Name:') }}
-        {{ Form::input('name','name', null, ['class'=> 'form-control'] ) }}
+        {{ Form::input('name','name', null, ['class'=> 'form-control', 'placeholder'=>'Company name here..'] ) }}
     
     </div>
     <div class="form-group">
         {{ Form::label('address', 'Address:') }}
-        {{ Form::input('address','address', null, ['class'=> 'form-control'] ) }}
+        {{ Form::input('address','address', null, ['class'=> 'form-control', 'placeholder'=>'Company address..'] ) }}
     
     </div>
     <div class="form-group">
         {{ Form::label('active', 'Is Active:') }}  
-        {{ Form::checkbox('active', 1, null, ['class' => 'field']) }}
+        {{ Form::checkbox('active', 1, null, ['class' => 'checkbox']) }}
     </div>
 
         {{ Form::submit('Add New', ['class'=>'btn btn-primary pull-right']) }}

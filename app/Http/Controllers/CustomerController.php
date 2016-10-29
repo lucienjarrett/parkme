@@ -59,6 +59,7 @@ class CustomerController extends Controller
         $customer->customer_type_id = $request->customer_type_id;
         $customer->company_id = $request->company_id;
         $customer->plate = $request->plate;
+        $customer->active = $request->plate;
         
         $customer->save();
         
@@ -112,7 +113,7 @@ class CustomerController extends Controller
         $customer->name = $request->input('name'); 
         $customer->customer_type_id = $request->input('customer_type_id'); 
         $customer->company_id = $request->input('company_id'); 
-        //$customer->is_active = $request->input();  
+        $customer->active = $request->input('active');  
         $customer->plate = $request->input('plate'); 
 
 

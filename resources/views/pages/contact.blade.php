@@ -22,15 +22,15 @@
         
         <div class="form-group">
             {{ Form::label( 'Your Name' )}}
-            {{ Form::input('name', 'name', null,['class'=>'form-control'])}}
+            {{ Form::input('name', 'name', null,['class'=>'form-control', 'placeholder'=>'Your name here'])}}
         </div>
         <div class="form-group">              
             {{ Form::label( 'Your Email' )}}
-            {{ Form::input('email', 'email', null,['class'=>'form-control'])}}
+            {{ Form::input('email', 'email', null,['class'=>'form-control', 'placeholder'=>'Your email here..'])}}
         </div>
         <div class="form-group">
             {{ Form::label( 'Your Message' )}}
-            {{ Form::textarea('message', null, ['class'=>'form-control'])}}    
+            {{ Form::textarea('message', null, ['class'=>'form-control', 'placeholder'=>'Your message here..'])}}    
         </div>      
         <div class="form-group">
             {{ Form::submit('Contact Us! ', ['class'=>'btn btn-primary pull-right']) }}
