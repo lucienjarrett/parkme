@@ -3,6 +3,17 @@
     <div class="col-md-8"> 
     <h1>Add Customer</h1>
     {{ Html::ul( $errors->all() )}}
+{{-- @include('layouts/flash::message') --}}
+
+@if (session()->has('flash_notification.message'))
+    <div class="alert alert-{{ session('flash_notification.level') }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+        {!! session('flash_notification.message') !!}
+    </div>
+@endif
+
+
 @if (Session::has('message'))
 <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif

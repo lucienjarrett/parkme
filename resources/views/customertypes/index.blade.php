@@ -12,6 +12,7 @@
     <thead>
         <th>#</th>
         <th>Customer Type</th>
+        <th>Rate </th>
         <th>Modified</th>
         <th>Actions</th>
     </thead>
@@ -20,6 +21,7 @@
         <tr>
             <th> {{ $type->id }}</th>
             <td> {{ $type->name }}</td>
+            <td> {{ $type->rate }}</td>
              <td> {{ $type->updated_at->toDateString() }}</td>
             <td> 
             <a href="{{ route('customertype.show', $type->id) }}" class="btn btn-info btn-sm">Show</a>
@@ -41,6 +43,10 @@
     <div class="form-group">
         {{ Form::label('Customer Type Name: ') }} 
         {{ Form::input('name', 'name', null, ['class'=>'form-control', 'placeholder'=>'Customer type name here...']) }}
+    </div>
+    <div class="form-group">
+    {{ Form::label('rate', 'Rate: ')}}
+    {{ Form::input('rate', 'rate', null, ['class'=>'form-control', 'placeholder'=>'Type rate here..']) }}
     </div>
     {{ Form::submit('Add New', ['class'=>'btn btn-success pull-right', 'style'=>'display:inline']) }} 
     {!! Form::close() !!}

@@ -15,8 +15,8 @@ class AddCompIdToCustomerTypeTable extends Migration
     {
         Schema::table('customers', function($table)
         {
-            $table->boolean('active');
-            $table->foreign('company_id')->references('id')->on('companies');  
+            //$table->boolean('active')->default(1);
+            //$table->foreign('company_id')->references('id')->on('companies');  
         });
     }
     
@@ -27,6 +27,6 @@ class AddCompIdToCustomerTypeTable extends Migration
     */
     public function down()
     {
-       
+       //$table->dropColumn('active'); 
     }
 }

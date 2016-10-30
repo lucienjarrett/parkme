@@ -53,10 +53,11 @@ class CustomerTypeController extends Controller
         $customertype = new CustomerType;
         
         $customertype->name = $request->name;
-        
+        $customertype->rate = $request->rate; 
         
         $customertype->save();
         
+        flash('Test');
         Session::flash('message', 'Successfully created '.$request->name);
         return Redirect::route('customertype.index');
     }
@@ -107,6 +108,7 @@ class CustomerTypeController extends Controller
         $type = CustomerType::find($id);
         
         $type->name = $request->input('name');
+        $type->rate = $request->input('rate');
         
         $type->save();
         Session::flash('message', 'Successfully updated to '.$request->input('name'));
@@ -124,8 +126,8 @@ class CustomerTypeController extends Controller
         $type = CustomerType::find($id);
 
         $type->delete();
-         // redirect
+        
         Session::flash('message', 'Successfully deleted the nerd!');
-         return Redirect::route('customertype.index');
+        return Redirect::route('customertype.index');
     }
 }

@@ -8,6 +8,7 @@
 <div class="well">
     <b>Id: </b>{{$type->id}}</br>
     <b>Customer Type: </b>{{$type->name}}</br>
+    <b>Rate: </b> {{ $type->rate }} </br>
     <b>Added at: </b> {{$type->created_at}}</br>
     <b>Modified at: </b>{{$type->updated_at}}
     

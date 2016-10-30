@@ -5,7 +5,12 @@
 {!! Form::model($type, ['route'=>['customertype.update', $type->id], 'method'=>'PUT']) !!}
 <div class="form-group">
     {{ Form::label('name','Customer Type') }}    
-    {{ Form::input('name', 'name', null, ['class'=>'form-control']) }}
+    {{ Form::input('name', 'name', null, ['class'=>'form-control']) }}  
+</div>
+
+<div class="form-group">
+    {{ Form::label('rate', 'Rate') }}
+    {{ Form::input('rate', 'rate', null, ['class'=>'form-control'])}}
 </div>
     {{ Form::submit('Save Changes', ['class'=>'btn btn-primary']) }}
     <a href="{{ route('customertype.index') }}" class="btn btn-info"> Back to List </a>
