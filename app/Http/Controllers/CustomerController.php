@@ -12,6 +12,7 @@ use Redirect;
 use App\Company;
 use App\CustomerType;
 use DB;
+use Alert; 
 //use App\Http\Requests\CustomerFormRequest;
 
 
@@ -63,7 +64,8 @@ class CustomerController extends Controller
         
         $customer->save();
         
-        Session::flash('message', 'Customer added...');
+        //Session::flash('message', 'Customer added...');
+        Alert::success('Success Message customer added..')->persistent("Close"); 
         return Redirect::route('customer.index');
         
         
@@ -118,8 +120,8 @@ class CustomerController extends Controller
 
 
         $customer->save(); 
-        Session::flash('message', 'Successfully updated...'); 
-        
+       // Session::flash('message', 'Successfully updated...'); 
+        Alert::success('Success Message customer updated..')->persistent("Close"); 
         return Redirect::route('customer.index'); 
     }
     

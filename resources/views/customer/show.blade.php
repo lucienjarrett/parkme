@@ -3,6 +3,9 @@
 @section('title', ' | Show Customer')
 
 @section('content')
+
+
+
     <div class="col-md-8">
     <div class="well">
     <b>Id: </b> {{$customer->id}}<br>

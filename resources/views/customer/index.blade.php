@@ -4,8 +4,13 @@
 <h1>All Customers</h1>
     
  
-       
-    <div class="col-md-8">
+<div class="col-md-4 pull-right">
+{!! Form::open(['method'=>'GET']) !!}
+{{ Form::input('search', 'q', null, ['class'=>'form-control', 'placeholder'=>'Type search here..']) }}
+{!! Form::close() !!}
+
+</div>       
+    <div class="col-md-12">
         @if(Session::has('message'))
             <div class="alert alert-info">
                 {{ Session::get('message') }}
