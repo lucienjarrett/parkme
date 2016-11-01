@@ -27,8 +27,8 @@
             <a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
              {!! Form::open(['route'=>['customertype.destroy', $type->id], 'method'=>'DELETE','style'=>'display:inline']) !!}
-             {{ Form::submit('Delete', ['class'=>'btn btn-danger btn-sm']) }}
-            {!! Form::close() !!}
+             {{  Form::submit('Delete', ['class'=>'btn btn-danger btn-sm']) }}
+             {!! Form::close() !!}
 
             </td>
         </tr>
@@ -50,8 +50,4 @@
     {{ Form::submit('Add New', ['class'=>'btn btn-success pull-right', 'style'=>'display:inline']) }} 
     {!! Form::close() !!}
 </div>
-
-
-
-
 @endsection()

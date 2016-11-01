@@ -31,6 +31,7 @@ Route::post('/contact', ['uses'=>'PagesController@store', 'as'=>'contact.store']
 Route::resource('customer', 'CustomerController'); 
 Route::resource('customertype','CustomerTypeController');
 
+Route::get('dashboard', ['uses'=>'DashboardController@index', 'as'=>'dashboard.index']); 
 
 Route::get('/about', ['uses' =>'PagesController@about', 'as'=> 'pages.about']);
 

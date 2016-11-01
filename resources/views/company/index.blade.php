@@ -10,14 +10,7 @@
             </div>
         @endif
     
-{{-- <div class="col-md-8 col-md-offset-2">
-{!! Form::open(['class'=>"navbar-form navbar-left pull-right", 'method'=>'GET']) !!}
-<div class="form-group">
-{{ Form::input('search', 'search', null, ['class'=>'form-control', 'placeholder'=>'Search here...'])}}
-</div>
-{{ Form::submit('Search', ['class'=>'btn btn-success']) }}
-{!! Form::close() !!}
-</div> --}}
+
     <div class="col-md-8 col-md-offset-2">
     <table class="table">
     <thead>
