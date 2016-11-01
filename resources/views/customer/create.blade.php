@@ -2,13 +2,13 @@
 @section('content')
     <div class="col-md-8"> 
     <h1>Add Customer</h1>
+    
     {{ Html::ul( $errors->all() )}}
-{{-- @include('layouts/flash::message') --}}
+
 
 @if (session()->has('flash_notification.message'))
     <div class="alert alert-{{ session('flash_notification.level') }}">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
         {!! session('flash_notification.message') !!}
     </div>
 @endif
@@ -18,7 +18,7 @@
 <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-    {!!Form::open(['route'=>['customer.store'], 'method'=>'POST'])!!}
+        {!!Form::open(['route'=>['customer.store'], 'method'=>'POST'])!!}
 
     <div class="form-group">
         {{ Form::label('name', 'Customer Name: ') }}
@@ -41,11 +41,9 @@
         {{ Form::label('active', 'Is Active:') }}  
         {{ Form::checkbox('active', 1, null, ['class' => 'checkbox']) }}
     </div>
-
-    {{ Form::reset('Reset', ['class'=>'btn btn-default']) }}
-    {{ Form::submit('Save', ['class'=>'btn btn-success pull-right']) }}
-    
-    {!!Form::close() !!}
-    
+        {{ Form::reset('Reset', ['class'=>'btn btn-default']) }}
+        {{ Form::submit('Save', ['class'=>'btn btn-success pull-right']) }}
+        
+        {!!Form::close() !!}    
     </div>
 @endsection 

@@ -18,16 +18,26 @@ use Alert;
 
 class CustomerController extends Controller
 {
+
+
+ 
+
     /**
     * Display a listing of the resource.
     *
     * @return \Illuminate\Http\Response
     */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $customers = Customer::paginate(5);
-        return view('customer.index')->with('customers', $customers);
+
+         $search = $request->get('search');
+         
+         //
+         $customers = Customer::SearchByKeyword($search)
+                                ->paginate(10); 
+
+                                
+         return view('customer.index')->with('customers', $customers);
     }
     
     /**
@@ -64,7 +74,7 @@ class CustomerController extends Controller
         
         $customer->save();
         
-        //Session::flash('message', 'Customer added...');
+       
         Alert::success('Success Message customer added..')->persistent("Close"); 
         return Redirect::route('customer.index');
         
@@ -136,7 +146,8 @@ class CustomerController extends Controller
       $customer = Customer::find($id);
     
       $customer->delete(); 
-      Session::flash('message', 'Customer deleted..');
+      //Session::flash('message', 'Customer deleted..');
+      Alert::success('Deleted.'); 
       return Redirect::route('customer.index');  
 
     }

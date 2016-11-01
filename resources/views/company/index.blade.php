@@ -33,11 +33,11 @@
           
     <tr>
     <th>{{ $company->id }}</th>
-    <td>{{ $company->name }}</td>
+    <td><a href="{{ route('company.show', $company->id) }}"> {{ $company->name }}</a></td>
     <td>{{ $company->address }}</td>
     <td>{{ ($company->active)=="1" ? "Yes" : "No" }}</td>
     <td>{{ $company->created_at }}</td>
-    <td><a href="{{ route('company.show', $company->id) }}" class="btn btn-info btn-sm" >Show </a>
+    <td>
     <a href="{{ route('company.edit', $company->id) }}" class="btn btn-primary btn-sm">Edit</a>
      {!! Form::open(['route' => ['company.destroy', $company->id], 'method' => 'delete','style'=>'display:inline']) !!}
      <input class="btn btn-danger btn-sm" type="submit" value="Delete" />

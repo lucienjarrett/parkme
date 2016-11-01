@@ -10,6 +10,7 @@ use App\CustomerType;
 use View;
 use Carbon\Carbon;
 use Redirect; 
+use Alert; 
 
 class CustomerTypeController extends Controller
 {
@@ -57,8 +58,9 @@ class CustomerTypeController extends Controller
         
         $customertype->save();
         
-        flash('Test');
-        Session::flash('message', 'Successfully created '.$request->name);
+        //flash('Test');
+       // Session::flash('message', 'Successfully created '.$request->name);
+         Alert::success('Success Message customer type added..')->persistent("Close"); 
         return Redirect::route('customertype.index');
     }
     
@@ -111,7 +113,8 @@ class CustomerTypeController extends Controller
         $type->rate = $request->input('rate');
         
         $type->save();
-        Session::flash('message', 'Successfully updated to '.$request->input('name'));
+       // Session::flash('message', 'Successfully updated to '.$request->input('name'));
+         Alert::success('Customer type updated')->persistent("Close"); 
         return Redirect::route('customertype.index');
     }
     
@@ -127,7 +130,8 @@ class CustomerTypeController extends Controller
 
         $type->delete();
         
-        Session::flash('message', 'Successfully deleted the nerd!');
+        //Session::flash('message', 'Successfully deleted the nerd!');
+        Alert::success('Customer type deleted.'); 
         return Redirect::route('customertype.index');
     }
 }

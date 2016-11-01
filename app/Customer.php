@@ -17,4 +17,19 @@ class Customer extends Model
 
         return $this->belongsTo('App\Company'); 
     }
+
+
+    public function scopeSearchByKeyword($query, $keyword)
+    {
+        if ($keyword!='') {
+            $query->where(function ($query) use ($keyword) {
+                $query->where("name", "LIKE","%$keyword%")
+                     ->orWhere("plate", "LIKE", "%$keyword%")
+                    // ->orWhere("blood_group", "LIKE", "%$keyword%")
+                    // ->orWhere("phone", "LIKE", "%$keyword%")
+                    ;
+            });
+        }
+        return $query;
+    }
 }

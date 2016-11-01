@@ -20,11 +20,10 @@
         @foreach($types as $type)
         <tr>
             <th> {{ $type->id }}</th>
-            <td> {{ $type->name }}</td>
+            <td> <a href="{{ route('customertype.show', $type->id) }}"> {{ $type->name }}</a></td>
             <td> {{ $type->rate }}</td>
              <td> {{ $type->updated_at->toDateString() }}</td>
             <td> 
-            <a href="{{ route('customertype.show', $type->id) }}" class="btn btn-info btn-sm">Show</a>
             <a href="{{ route('customertype.edit', $type->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
              {!! Form::open(['route'=>['customertype.destroy', $type->id], 'method'=>'DELETE','style'=>'display:inline']) !!}
