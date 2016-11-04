@@ -5,6 +5,8 @@
     {{ Html::ul($errors->all()) }}
     
     {!!Form::model($company, ['route'=>['company.update', $company->id], 'method'=>'PUT']) !!}
+
+    
      <div class="form-group">
         {{ Form::label('name', 'Company Name:') }}
         {{ Form::input('name','name', null, ['class'=> 'form-control'] ) }}
@@ -22,7 +24,7 @@
 
         {{ Form::submit('Save changes', ['class'=>'btn btn-success pull-right']) }}
        
-{{ Html::linkRoute('company.index', 'Back Company List',null , ['class'=>'btn btn-primary pull-left']) }}
+        {{ Html::linkRoute('company.index', 'Back Company List',null , ['class'=>'btn btn-primary pull-left']) }}
     {!!Form::close() !!}
     </div>
 @endsection

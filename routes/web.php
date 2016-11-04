@@ -33,6 +33,9 @@ Route::resource('customertype','CustomerTypeController');
 
 Route::get('dashboard', ['uses'=>'DashboardController@index', 'as'=>'dashboard.index']); 
 
+//Route::get('/transaction', 'TransactionsController@index'); 
+Route::get('transaction/record', ['uses'=> 'TransactionsController@record', 'as'=>'transaction.record']); 
+
 Route::get('/about', ['uses' =>'PagesController@about', 'as'=> 'pages.about']);
 
 

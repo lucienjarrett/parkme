@@ -37,7 +37,8 @@
     </div>
 
         {{ Form::submit('Add New', ['class'=>'btn btn-primary pull-right']) }}
-        {{ Form::reset('Reset', ['class'=>'btn btn-default pull-left']) }}
+        {{-- {{ Form::in('Reset', ['class'=>'btn btn-default pull-left']) }} --}}
+        {{ Html::linkRoute('company.index', 'Back to list', null, ['class'=>'btn btn-default pull-left'] ) }}
         {!! Form::close() !!}
     </div>
 
