@@ -27,11 +27,15 @@ class TransactionsController extends Controller
     // }
 
 
-    public function record()
+    public function record($id)
     {
     
-        $customer = DB::table('customers')->pluck('name', 'id'); 
-        return view('transaction.record')->with('customer', $customer); 
+
+ 
+        $customers = Customer::find($id); 
+
+
+        return view('transaction.record')->with('customers', $customers); 
     }
     
     
